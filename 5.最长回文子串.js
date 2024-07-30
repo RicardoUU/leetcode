@@ -9,7 +9,7 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
+var longestPalindrome = function (s) {
   const n = s.length;
   const dp = new Array(n).fill(0).map(() => new Array(n).fill(false));
   let ans = '';
@@ -22,10 +22,10 @@ var longestPalindrome = function(s) {
       } else if (len === 1) {
         dp[i][j] = (s[i] === s[j]);
       } else {
-        dp[i][j] = (s[i] === s[j] && dp[i+1][j-1]);
+        dp[i][j] = (s[i] === s[j] && dp[i + 1][j - 1]);
       }
       if (dp[i][j] && len + 1 > ans.length) {
-        ans = s.slice(i, j+1);
+        ans = s.slice(i, j + 1);
       }
     }
   }

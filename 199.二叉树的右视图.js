@@ -18,6 +18,14 @@
  * @return {number[]}
  */
 var rightSideView = function (root) {
+  /**
+   * 思路: BFS
+   * 1. 每次取每一层的最后一个节点
+   * 2. 遍历每一层的节点，将下一层的节点放入队列
+   * 3. 直到队列为空
+   * 4. 返回结果数组
+   * 时间复杂度: O(n)
+   */
   if (!root) return [];
   let res = [];
   let queue = [root];
