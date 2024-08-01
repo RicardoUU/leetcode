@@ -17,6 +17,10 @@
  * @return {boolean}
  */
 var isPalindrome = function (head) {
+  // 思路:
+  // 1. 将链表的值存入数组中
+  // 2. 使用双指针判断数组是否是回文数组
+  // 3. 时间复杂度: O(n)
   let arr = [];
   while (head) {
     arr.push(head.val);
