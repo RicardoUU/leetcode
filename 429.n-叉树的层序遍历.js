@@ -17,7 +17,15 @@
  * @param {_Node|null} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var levelOrder = function (root) {
+  /**
+   * 思路: 层序遍历
+   * 1. 使用队列queue存储节点
+   * 2. 遍历队列，将节点的值存入level数组
+   * 3. 将节点的子节点存入队列
+   * 4. 时间复杂度: O(n)
+   * 
+   */
   if (!root) return [];
   let res = [];
   let queue = [root];
@@ -32,7 +40,7 @@ var levelOrder = function(root) {
     res.push(level);
   }
   return res;
-    
+
 };
 // @lc code=end
 

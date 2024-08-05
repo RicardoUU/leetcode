@@ -14,8 +14,9 @@ var findLengthOfLCIS = function (nums) {
    * 思路: 滑动窗口
    * 1. 使用双指针left和right分别指向0和1
    * 2. 遍历数组，如果nums[right] > nums[right-1]，则right++
-   * 3. 计算最大长度
-   * 4. 时间复杂度: O(n)
+   * 3. 否则，计算right-left的长度，更新max，left=right，right++
+   * 4. 最后，max = Math.max(max, right - left)
+   * 5. 时间复杂度: O(n)
    */
   if (!nums.length) return 0;
   let left = 0;
