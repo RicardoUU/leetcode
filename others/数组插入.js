@@ -14,6 +14,7 @@ function insert(arr, num) {
   let right = arr.length - 1;
   while (left <= right) {
     // >> 1 位运算符，相当于除以2, 不会有小数吗? 会有小数，但是会向下取整, 因为>>是右移运算符，会把小数部分去掉
+    // << 1 位运算符，相当于乘以2
     let mid = left + ((right - left) >> 1);
     if (arr[mid] === num) {
       return mid;
