@@ -24,7 +24,7 @@ var convert = function (s, numRows) {
   const n = 2 * numRows - 2; // 一个 Z 字的循环长度
   for (let i = 0; i < s.length; i++) {// 遍历字符串s
     const x = i % n;// x 为 i 对 n 取余的结果
-    rows[Math.min(x, n - x)] += s[i];// 将每个字符放到对应的行中
+    rows[Math.min(x, n - x)] += s[i];// 将每个字符放到对应的行中, (n - x) 是为了处理最后一行,因为最后一行的索引是 numRows - 1
   }
   return rows.join('');
 };
