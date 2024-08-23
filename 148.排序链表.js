@@ -28,7 +28,7 @@ var sortList = function (head) {
     fast = fast.next.next;
   }
   let mid = slow.next;
-  slow.next = null;
+  slow.next = null;  // 断开链表
   let left = sortList(head);
   let right = sortList(mid);
   let prehead = new ListNode(-1);

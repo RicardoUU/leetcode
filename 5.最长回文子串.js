@@ -30,7 +30,7 @@ var longestPalindrome = function (s) {
       } else {
         dp[i][j] = (s[i] === s[j] && dp[i + 1][j - 1]);
       }
-      if (dp[i][j] && len + 1 > ans.length) {
+      if (dp[i][j] && len + 1 > ans.length) { // 更新最长回文子串
         ans = s.slice(i, j + 1);
       }
     }
