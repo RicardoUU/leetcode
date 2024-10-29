@@ -10,3 +10,5 @@ const add = x => x + 1;
 const square = x => x * x;
 const addThenSquare = compose(square, add);
 console.log(addThenSquare(2)); // 9
+
+console.log(compose(square, add)(2)); // 9

@@ -24,11 +24,11 @@ var lengthOfLongestSubstring = (s) => {
   let len = s.length;
   let res = 0;
   let map = new Map();
-  for (let i = 0, j = 0; j < len; j++) {
-    if (map.has(s[j])) {
-      i = Math.max(map.get(s[j]), i);
+  for (let i = 0, j = 0; j < len; j++) { // j为右指针
+    if (map.has(s[j])) { // 如果map中存在当前字符
+      i = Math.max(map.get(s[j]), i); // i为左指针
     }
-    res = Math.max(res, j - i + 1);
+    res = Math.max(res, j - i + 1); // 计算最大长度
     map.set(s[j], j + 1);
   }
   return res;

@@ -1,4 +1,3 @@
-
 // add(1)(2)(3)(4)
 // add(1, 2)(3, 4)
 // add(1, 2, 3, 4)
@@ -17,19 +16,18 @@
 function add(...args) {
   // 累加所有参数
   const sum = args.reduce((acc, cur) => acc + cur, 0);
-  
+
   // 定义一个函数以接受更多参数
   function innerAdd(...innerArgs) {
-      // 将新参数累加到当前和
-      return add(sum, ...innerArgs);
+    // 将新参数累加到当前和
+    return add(sum, ...innerArgs);
   }
-  
+
   // 定义一个隐式转换，以便最后返回结果
   innerAdd.toString = () => sum;
   innerAdd.valueOf = () => sum;
   // 定义一个隐式转换，以便最后返回结果
   innerAdd[Symbol.toPrimitive] = () => sum;
-
 
   return innerAdd;
 }
@@ -38,18 +36,17 @@ function add(...args) {
 console.log(add(1)(2)(3)(4)); // 10
 console.log(add(1, 2)(3, 4)); // 10
 console.log(add(1, 2, 3, 4)); // 10
-console.log(add(1)(2)(3)(4)) // 10
-console.log(add(1, 2)(3, 4)) // 10
-console.log(add(1, 2, 3, 4)) // 10
-
-
+console.log(add(1)(2)(3)(4)); // 10
+console.log(add(1, 2)(3, 4)); // 10
+console.log(add(1, 2, 3, 4)); // 10
 
 function curry(fn, ...args) {
   // 如果传入的参数个数大于等于原函数的参数个数，则直接执行原函数
   // 否则返回一个新函数，接收剩余的参数
-  return args.length >= fn.length ? fn(...args) : (...newArgs) => curry(fn, ...args, ...newArgs);
+  return args.length >= fn.length
+    ? fn(...args)
+    : (...newArgs) => curry(fn, ...args, ...newArgs);
 }
-
 
 // test cases
 function add2(a, b, c, d) {

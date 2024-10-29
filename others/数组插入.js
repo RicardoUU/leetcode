@@ -20,7 +20,7 @@ function insert(arr, num) {
       return mid;
     } else if (arr[mid] < num) {
       left = mid + 1;
-    } else {
+    } else {  
       right = mid - 1;
     }
   }

@@ -18,3 +18,15 @@ function addTwoNumbers(l1, l2) {
     }
     return head.next;
 }
+
+    function findIndex(arr, num) {  
+        for (let i = 0; i < arr.length; i++) {  
+          if (arr[i] === num) {  
+            return i;  
+          }  
+        }  
+        return -1;  
+      }  
+      console.log(findIndex([1, 2, 3, 4], 3));
+// 请将以下版本号数组按照由小到大的顺序进行排序：[1.0.1, 1.1.0, 1.0.2, 2.0.0]
+

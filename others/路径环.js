@@ -15,7 +15,7 @@ function findCycle(paths) {
       if (!graph[start]) graph[start] = [];
       graph[start].push(end);
   }
-  console.log(graph);
+  console.log(graph); // { A: [ 'B', 'C' ], B: [ 'D' ], D: [ 'A' ] }
 
   // 访问状态
   const visited = new Set();

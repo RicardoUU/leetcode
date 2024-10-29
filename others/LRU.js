@@ -1,3 +1,4 @@
+// 最近最少使用
 class LRUCache {
   constructor(capacity) {
     this.capacity = capacity;

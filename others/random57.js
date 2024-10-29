@@ -9,9 +9,9 @@ function random5() {
 // 3. 返回随机数除以 7 的余数加 1
 
 function random7() {
-  let num = 5 * (random5() - 1) + random5();
+  let num = 5 * (random5() - 1) + random5(); // 1-25
   while (num > 21) {
-    num = 5 * (random5() - 1) + random5();
+    num = 5 * (random5() - 1) + random5(); // random5() - 1 生成 0-4 的随机数
   }
-  return num % 7 + 1;
+  return num % 7 + 1; // 0-6 + 1 = 1-7
 }
