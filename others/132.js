@@ -1,14 +1,3 @@
-/*
- * @lc app=leetcode.cn id=456 lang=javascript
- *
- * [456] 132 模式
- */
-
-// @lc code=start
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
 var find132pattern = function (nums) {
   /**
    * 思路: 单调栈(递减)
@@ -26,15 +15,20 @@ var find132pattern = function (nums) {
   let k = -Infinity; // 132 模式中的 2
   for (let i = n - 1; i >= 0; i--) {
     if (nums[i] < k) { // 保证栈顶元素最小，即保证栈顶元素是 3
+      console.log(nums[i], k);
       return true;
     }
     while (stack.length && stack[stack.length - 1] < nums[i]) {
       k = Math.max(k, stack.pop());
     }
     stack.push(nums[i]); //
+    console.log(stack, k);
   }
   return false;
   
 };
-// @lc code=end
 
+// test case
+
+const nums = [1,2,3,5,4,6,7,8,9,10];
+console.log(find132pattern(nums)); // true

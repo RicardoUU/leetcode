@@ -42,6 +42,7 @@ class Scheduler {
     this.max = max
     this.queue = []
     this.running = 0
+    this.isStart = false
   }
   add(task) {
     // return new Promise(resolve => {
@@ -54,18 +55,29 @@ class Scheduler {
     //   }
     // })
     
-    return new Promise((resolve) => {
+    return new Promise((resolve) => { // Promise这里的是参数是一个函数，这个函数会在Promise的构造函数中立即执行， 是同步代码 
       task.resolve = resolve
-      if (this.running < this.max) {
-        this.run(task)
+      
+      // 如果已经开始了，直接执行
+      if (this.isStart) {
+        if (this.running < this.max) {
+          this.run(task)
+        } else {
+          this.queue.push(task)
+        }
       } else {
+        // 如果还没开始，先放到队列中
         this.queue.push(task)
       }
+      
     })
 
   }
 
   start() {
+    console.log('start')
+    if (this.isStart) return
+    this.isStart = true
     // max 个通道开启
     for (let i = 0; i < this.max; i++) {
       const fn = this.queue.shift()
@@ -74,6 +86,7 @@ class Scheduler {
   }
 
   async run(task) {
+    console.log('run')
     if (task && typeof task === 'function') {
       this.running++
       await task()
@@ -87,6 +100,7 @@ class Scheduler {
   stop() {
     this.running = 0
     this.queue = []
+    this.isStart = false
   }
 }
 
@@ -110,4 +124,4 @@ async function test() {
   
 }
 
-test()
+test() // 2 3 1 4

@@ -56,5 +56,5 @@ function merge(left, right) {
   }
 
   // 当一边数组为空时，将另一边剩下的元素全部加入结果数组
-  return [...result, ...left, ...right];
+  return [...result, ...left, ...right];// 这里的...是展开运算符，用于将一个数组转为用逗号分隔的参数序列
 }
