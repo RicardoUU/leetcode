@@ -7,4 +7,4 @@ function fn() {
   }
 }
 fn();
-console.log(foo);
+console.log(foo); // 1,因为
