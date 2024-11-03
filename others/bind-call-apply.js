@@ -29,10 +29,19 @@ function MyBind(context, ...args) {
   }
 }
 
-// new
-
-function MyNew(fn, ...args) {
-  const obj = Object.create(fn.prototype)
-  const result = fn.apply(obj, args) // 将fn的this指向obj，执行fn
-  return result instanceof Object ? result : obj // 如果fn返回了一个对象，那么new的结果就是这个对象,否则就是obj
+// new的实现
+/**
+ * 1. 创建一个新对象
+ * 2. 将新对象的原型指向构造函数的prototype
+ * 3. 将构造函数的this指向新对象，并执行构造函数
+ * 4. 如果构造函数返回了一个对象，那么new的结果就是这个对象,否则就是新对象
+ * 
+ */
+function myNew(constructor, ...args) {
+  // 1. 创建一个新的空对象，并将其原型链接到构造函数的 prototype 上
+  const obj = Object.create(constructor.prototype);
+  // 2. 执行构造函数，将 `this` 绑定到新对象上
+  const result = constructor.apply(obj, args);
+  // 3. 返回构造函数返回的对象（如果是对象类型），否则返回新对象
+  return (typeof result === 'object' && result !== null) ? result : obj;
 }
