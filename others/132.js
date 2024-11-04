@@ -30,5 +30,5 @@ var find132pattern = function (nums) {
 
 // test case
 
-const nums = [1,2,3,5,4,6,7,8,9,10];
+const nums = [1,2,3,7,4,6,7,8,9,10];
 console.log(find132pattern(nums)); // true
