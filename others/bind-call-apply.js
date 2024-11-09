@@ -25,6 +25,10 @@ function MyApply(context, args) {
 function MyBind(context, ...args) {
   const fn = this
   return function (...newArgs) {
+    // 如果是new的话，this指向实例
+    if (new.target) {// new.target是es6的语法，表示new命令作用的构造函数,es5可以使用this instanceof fn
+      return new fn(...args, ...newArgs)
+    }
     return fn.apply(context, args.concat(newArgs))
   }
 }
