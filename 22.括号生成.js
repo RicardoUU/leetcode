@@ -19,7 +19,7 @@ var generateParenthesis = function (n) {
    * 5. 时间复杂度: O(2^n)
    */
   const res = [];
-  const dfs = (l, r, str) => {
+  const dfs = (l, r, str) => { // l: 左括号数量, r: 右括号数量, str: 当前字符串
     if (l === n && r === n) {
       res.push(str);
       return;

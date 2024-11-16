@@ -15,6 +15,7 @@ var maxProfit = function(prices) {
   // 1. 定义一个变量max用来记录最大利润, 初始值为0
   // 2. 遍历数组, 如果prices[i] > prices[i-1], 则max += prices[i] - prices[i-1]
   // 3. 返回max
+  // 时间复杂度: O(n)
   let max = 0;
   for (let i = 1; i < prices.length; i++) {
     if (prices[i] > prices[i - 1]) {
