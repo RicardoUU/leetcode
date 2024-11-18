@@ -20,6 +20,7 @@ var reverse = function (x) {
     const digit = x % 10;
     x = ~~(x / 10);      // ~~是取整运算符，相当于Math.floor
     rev = rev * 10 + digit;
+    // 判断是否溢出, 2^31 - 1 = 2147483647, -2^31 = -2147483648
     if (rev < Math.pow(-2, 31) || rev > Math.pow(2, 31) - 1) {
       return 0;
     }

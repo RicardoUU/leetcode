@@ -48,4 +48,26 @@ const permuta = new Permutation(arr);
 permuta.run(0);
 
 console.log(permuta.result);
-// console.log(permuta.arr);
+// console.log(permuta.arr);、
+
+function permute(nums) {
+// 递归实现， 交换元素
+  const result = [];
+  const len = nums.length;
+  function run(index) {
+      if (index == len - 1) {
+          result.push(Array.from(nums));
+          return;
+      }
+      for (let i = index; i < len; i++) {
+          [nums[index], nums[i]] = [nums[i], nums[index]];
+          run(index + 1);
+          [nums[index], nums[i]] = [nums[i], nums[index]];
+      }
+  }
+  run(0);
+  return result;
+}
+
+// test
+console.log(permute([1, 2, 3])); // [ [ 1, 2, 3 ], [ 1, 3, 2 ], [ 2, 1, 3 ], [ 2, 3, 1 ], [ 3, 2
