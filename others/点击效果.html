@@ -41,6 +41,13 @@
         icon.classList.remove('active')
       }
     })
+
+    // 点击容器外移除边框
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) { // 判断点击的元素是否在容器内
+        icon.classList.remove('active')
+      }
+    })
   </script>
   
 </body>
