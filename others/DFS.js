@@ -17,3 +17,23 @@ function dfsIterative(root) {
       }
   }
 }
+
+
+// fn([['a', 'b'], ['n', 'm'], ['0', '1']]) => ['an0', 'am0', 'an1', 'am1', 'bn0', 'bm0', 'bn1', 'bm0']
+
+function fn(arr) {
+    let res = [];
+    function dfs(index, str) {
+        if (index === arr.length) {
+            res.push(str);
+            return;
+        }
+        for (let i = 0; i < arr[index].length; i++) {
+            dfs(index + 1, str + arr[index][i]);
+        }
+    }
+    dfs(0, '');
+    return res;
+}
+
+console.log(fn([['a', 'b'], ['n', 'm'], ['0', '1']])) // ['an0', 'am0', 'an1', 'am1', 'bn0', 'bm0', 'bn1', 'bm0']
