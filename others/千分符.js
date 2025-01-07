@@ -21,7 +21,7 @@ function formatNumber3(num) {
   integer = integer.split('').reverse().reduce((prev, next, index) => {
     return (index % 3 ? next : next + ',') + prev; // 从后往前，每三位加一个逗号
   });
-  return decimal ? `${integer}.${decimal}` : integer;
+  return decimal ? `${integer}.${decimal}` : integer; // 小数部分
 }
 
 
