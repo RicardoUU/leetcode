@@ -17,9 +17,9 @@ var isPalindrome = function (x) {
   let num = x;
   let res = 0;
   while (num) {
-    res = res * 10 + (num % 10);
+    res = res * 10 + (num % 10); // 取余
     // 取整
-    num = ~~(num / 10);
+    num = ~~(num / 10); // 相当于 Math.floor(num / 10)
   }
   return res === x;
 };

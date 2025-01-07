@@ -5,7 +5,7 @@ function deepClone(obj) {
   if (typeof obj !== 'object') return obj;
   if (obj instanceof Date) return new Date(obj);
   if (obj instanceof RegExp) return new RegExp(obj);
-  let newObj = new obj.constructor();
+  let newObj = new obj.constructor(); // 保持继承链
   for (let key in obj) { // 遍历obj的自有属性,数组和对象
     if (obj.hasOwnProperty(key)) { // 只复制自有属性
       newObj[key] = deepClone(obj[key]);
