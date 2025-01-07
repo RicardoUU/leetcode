@@ -1,6 +1,6 @@
 // 实现promise
 
-class Promise {
+class MyPromise {
   constructor(executor) {
     this.state = 'pending';
     this.value = undefined;

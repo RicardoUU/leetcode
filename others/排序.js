@@ -58,3 +58,20 @@ function merge(left, right) {
   // 当一边数组为空时，将另一边剩下的元素全部加入结果数组
   return [...result, ...left, ...right];// 这里的...是展开运算符，用于将一个数组转为用逗号分隔的参数序列
 }
+
+
+// 冒泡
+function bubbleSort(arr) {
+  // 外层循环控制比较的轮数
+  for (let i = 0; i < arr.length - 1; i++) {
+    // 内层循环控制每一轮比较的次数
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      // 如果前一个元素大于后一个元素，则交换两者
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // es6的解构赋值
+      }
+    }
+  }
+
+  return arr;
+}
