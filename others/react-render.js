@@ -1,4 +1,4 @@
-// react render function 实现
+// react render function 实现 
 
 function render(vnode, container) {
   return container.appendChild(_render(vnode));
