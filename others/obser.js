@@ -1,5 +1,5 @@
 
-
+// 蚂蚁
 // 实现监听对象path的变化，当对象的path属性发生变化时，触发回调函数
 
 function observe(obj, path, callback) {
