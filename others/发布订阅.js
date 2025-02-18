@@ -21,6 +21,11 @@ class Event {
     this.on(type, callback);
   }
 
+  /**
+   * 
+   * @param {*} type // 事件类型
+   * @param {*} listener // 传入的监听函数, 用于移除指定事件类型的监听函数
+   */
   off(type, listener) {
     this.events[type] = this.events[type] || [];
     this.events[type] = this.events[type].filter(
