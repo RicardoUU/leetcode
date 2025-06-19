@@ -53,7 +53,7 @@ function find(data) {
               return false;
             }
           } else {
-            if (item[key] !== obj[key]) {
+            if (item[key] !== obj[key]) { // 如果不是正则表达式，则直接比较
               return false;
             }
           }
