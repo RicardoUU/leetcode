@@ -18,6 +18,12 @@ function random2_10() {
   // return Math.floor(Math.random() * 8) + 3; // 0-7 + 3 = 3-10
 }
 
+// 2-11
+function random2_11() {
+  // 不使用 random5实现
+  return Math.floor(Math.random() * 10) + 2; // 0-9 + 2 = 2-11
+}
+
 // function random2_5() {
 //   // let num = random5();
 //   // while (num === 5) {

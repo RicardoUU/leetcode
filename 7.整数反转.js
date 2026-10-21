@@ -17,7 +17,7 @@ var reverse = function (x) {
   // 4. 时间复杂度: O(log(x))
   let rev = 0;
   while (x !== 0) {
-    const digit = x % 10;
+    const digit = x % 10; // 取余数
     x = ~~(x / 10);      // ~~是取整运算符，相当于Math.floor
     rev = rev * 10 + digit;
     // 判断是否溢出, 2^31 - 1 = 2147483647, -2^31 = -2147483648

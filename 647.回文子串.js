@@ -18,7 +18,7 @@ var countSubstrings = function (s) {
    */
   const n = s.length;
   const dp = new Array(n).fill(0).map(() => new Array(n).fill(false));
-  let ans = 0;
+  let ans = 0; // 记录回文子串的数量
 
   for (let len = 0; len < n; len++) { // len表示子串的长度
     for (let i = 0; i + len < n; i++) { // i表示子串的起始位置

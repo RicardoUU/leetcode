@@ -26,22 +26,22 @@ var threeSum = function (nums) {
   if (n < 3) return res;
   nums.sort((a, b) => a - b);
   for (let i = 0; i < n; i++) {
-    if (nums[i] > 0) break;
-    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    if (nums[i] > 0) break; // 如果当前数大于0，则三数之和一定大于0，结束循环
+    if (i > 0 && nums[i] === nums[i - 1]) continue; // 如果当前数与前一个数相同，则跳过
     let left = i + 1;
     let right = n - 1;
     while (left < right) {
-      const sum = nums[i] + nums[left] + nums[right];
+      const sum = nums[i] + nums[left] + nums[right]; // 计算三数之和
       if (sum === 0) {
-        res.push([nums[i], nums[left], nums[right]]);
-        while (left < right && nums[left] === nums[left + 1]) left++;
-        while (left < right && nums[right] === nums[right - 1]) right--;
+        res.push([nums[i], nums[left], nums[right]]); // 如果三数之和为0，则记录结果
+        while (left < right && nums[left] === nums[left + 1]) left++; // 如果左指针与下一个数相同，则跳过
+        while (left < right && nums[right] === nums[right - 1]) right--; // 如果右指针与前一个数相同，则跳过
         left++;
         right--;
       } else if (sum < 0) {
-        left++;
+        left++; // 如果三数之和小于0，则左指针右移
       } else {
-        right--;
+        right--; // 如果三数之和大于0，则右指针左移
       }
     }
   }

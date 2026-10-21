@@ -19,10 +19,11 @@ var maxProfit = function(prices) {
    */
   let buy1 = -prices[0], sell1 = 0, buy2 = -prices[0], sell2 = 0;
   for (let i = 1; i < prices.length; i++) {
-    buy1 = Math.max(buy1, -prices[i]);
+    // buy1 = Math.max(buy1, -prices[i]);
+    buy1 = Math.max(buy1, -prices[i]); // 第一次买入的最大利润, -prices[i] 表示买入
     sell1 = Math.max(sell1, buy1 + prices[i]);
-    buy2 = Math.max(buy2, sell1 - prices[i]);
-    sell2 = Math.max(sell2, buy2 + prices[i]);
+    buy2 = Math.max(buy2, sell1 - prices[i]); // 第二次买入的最大利润, sell1 - prices[i] 表示卖出后再买入
+    sell2 = Math.max(sell2, buy2 + prices[i]); // 第二次卖出的最大利润, buy2 + prices[i] 表示买入后再卖出
   }
   return sell2;
 };
